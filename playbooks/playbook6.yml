@@ -1,0 +1,18 @@
+---
+- name: install apache2, change the default webpage of apache2 and restart 
+  hosts: all
+  become: true
+  tasks:
+   - name: install apache2
+     apt:
+      name: apache2
+      state: present
+      update_cache: yes
+   - name: change the default webpage
+     copy:
+      content: "<h2>Hello World</h2>"
+      dest: /var/www/html/index.html
+   - name: restart apache2
+     service:
+      name: apache2
+      state: restarted

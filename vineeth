@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Hello there,"
+echo "the time is: "
+date | awk '{print $4,$3,$2,$6,$1}'
+echo "Have a nice day!"

@@ -1,0 +1,9 @@
+---
+- name: install apache2 and create  a user devops
+  hosts: all
+  tasks:
+   - name: call child elements
+     include: "{{item}}"
+     with_items:
+      - child1.yml
+      - child2.yml

@@ -1,0 +1,5 @@
+- name: create a user
+  user: 
+   name: devops
+   password: 123456
+

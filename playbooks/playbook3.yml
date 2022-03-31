@@ -1,0 +1,17 @@
+---
+- name: create a user and in the user's workspace, create a file
+  hosts: all
+  tasks:
+   - name: create a user (Sravani)
+     user:
+      name: sravani
+      password: 123456
+      home: /home/sravani
+      shell: /bin/bash
+      comment: "a developer"
+      uid: 1007
+   - name: create a file
+     file:
+      name: /home/sravani/myfile.txt
+      state: touch
+...

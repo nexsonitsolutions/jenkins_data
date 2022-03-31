@@ -1,0 +1,17 @@
+---
+- name: create a file in user's workspace if the directory is present
+  hosts: all
+  tasks:
+   - name: identify the file 
+     stat:
+      path: /home/shivam
+     register: result
+   - name: print the result
+     debug: 
+      var: result
+   - name: create a file if the directory is present
+     file: 
+      name: /home/shiva/myfile123.txt
+      state: touch
+     when:
+      result.stat.exists==true

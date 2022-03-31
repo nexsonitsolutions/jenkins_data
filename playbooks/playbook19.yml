@@ -1,0 +1,18 @@
+---
+- name: create tomcat container 
+  hosts: all
+  tasks:
+   - name: start tomcat  as a container
+     docker_container:
+      image: tomcat
+      name: appserver
+      ports:
+       - 7777:8080
+   - name: stop tomcat as a container
+     docker_container:
+      name: appserver
+      state: stopped
+   - name: delete tomcat container
+     docker_container: 
+      name: appserver
+      state: absent

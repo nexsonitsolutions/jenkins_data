@@ -1,0 +1,7 @@
+- name: remove tree
+  apt: 
+   name: tree
+   state: absent
+   tags: 
+    remove_tree
+

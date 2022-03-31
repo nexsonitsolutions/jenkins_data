@@ -1,0 +1,16 @@
+---
+- name: install git tree uninstall tomcat9 tomcat9-admin install elinks
+  hosts: all
+  tasks:
+   - name:  install packages
+     apt:
+      name: "{{item.a}}"
+      state: "{{item.b}}"
+      update_cache: "{{item.c}}"
+     with_items:
+      - {a: git, b: present, c: yes}
+      - {a: tree, b: present, c: yes}
+      - {a: tomcat9, b: absent, c: no}
+      - {a: tomcat9-admin, b: absent, c: no}
+      - {a: elinks, b: present, c: yes}
+...

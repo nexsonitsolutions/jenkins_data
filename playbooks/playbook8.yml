@@ -1,0 +1,27 @@
+---
+- name: remove apache2, install nginx, create user, install git, remove tree
+  hosts: devops
+  tasks:
+   - name: uninstall package
+     apt:
+      name: "{{a}}"
+      state: "{{b}}"
+   - name: install a package
+     apt:
+      name: "{{c}}"
+      state: "{{d}}"
+   - name: create a user
+     user:
+      name: "{{f}}"
+      password: "{{j}}"
+      uid: "{{h}}"
+      home: "{{g}}"
+      comment: "{{i}}"
+   - name: install package
+     apt:
+      name: "{{l}}"
+      state: "{{d}}"
+   - name: uninstall a package
+     apt:
+      name: "{{k}}"
+      state: "{{b}}"

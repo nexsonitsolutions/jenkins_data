@@ -1,0 +1,19 @@
+---
+- name: run the playbook when a condition is satisfied
+  hosts: all
+  vars:
+   - a: "ramesh"
+   - b: 20
+  tasks:
+   - name: create a file in user's workspace
+     file:
+      name: /home/ramesh/newfile_abc.txt
+      state: touch
+     when:
+      a=="ramesh"
+   - name: create a directory in user's workspace
+     file:
+      name: /home/mudassir/dir1
+      state: directory
+     when: 
+      b==20

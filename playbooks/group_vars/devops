@@ -1,0 +1,12 @@
+a: apache2
+b: absent
+c: nginx
+d: present
+e: restarted
+f: ramesh
+g: /home/ramesh
+h: 1006
+i: "a developer"
+j: "123456789"
+k: tree
+l: git

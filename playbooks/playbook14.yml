@@ -1,0 +1,18 @@
+---
+- name: update the password  of a user if he is present
+  hosts: all
+  tasks:
+   - name: create a use
+     user:
+      name: shiva
+     register: output
+   - name: print the output of above play
+     debug:
+      var: output
+   - name: update th epassword of the user
+     user:
+      name: shiva
+      password: 654321
+     when:
+      output.changed==false
+...

@@ -1,0 +1,19 @@
+---
+- name: install tomcat8 (tomcat9) on all the managed nodes. Check url response
+  hosts: all
+  tasks:
+   - block:
+      - name: install tomcat8
+        apt: 
+         name: tomcat8
+         state: present
+     rescue:
+      - name: install tomcat7
+        apt:
+         name: tomcat7
+         state: present
+     always:
+      - name: check url resp
+        uri: 
+         url: "http://172.31.32.5:8080"
+         status_code: 200

@@ -1,0 +1,11 @@
+---
+- name: print output in a variable
+  hosts: all
+  tasks:
+   - name: check if a file /directory is present
+     stat:
+      path: /home/shiva
+     register: myresult
+   - name: print the result
+     debug:
+      var: myresult

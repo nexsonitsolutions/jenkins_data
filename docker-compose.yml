@@ -1,0 +1,15 @@
+---
+# create multi container architecture (Wordpress linked with MYSQL)
+version: '3'
+services:
+ mydb:
+  image: mysql
+  environment:
+   MYSQL_ROOT_PASSWORD: root
+ mywp:
+  image: wordpress
+  ports: 
+   - 7575:80
+  links:
+   - mydb 
+...

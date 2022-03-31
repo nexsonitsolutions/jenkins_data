@@ -1,0 +1,33 @@
+- name: install apache2 create user devops, restart tomcat9, change the config of apache2, remove git and tree
+  hosts: all
+  tasks: 
+   - name: install apache2
+     apt:
+      name: apache2
+      state: present 
+      update_cache: yes
+   - name: create a user
+     user: 
+      name: devops
+      password: 123456
+   - name: restart tomcat9
+     service:
+      name: tomcat9
+      state: restarted
+   - name: change the default webpage of apache2
+     copy:
+      content: "<h2>Hello World</h2>"
+      dest: /var/www/html/index.html
+   - name: remove git
+     apt:
+      name: git
+      state: absent
+     tags:
+      remove_git
+   - name: remove tree
+     apt: 
+      name: tree
+      state: absent
+     tags: 
+      remove_tree
+

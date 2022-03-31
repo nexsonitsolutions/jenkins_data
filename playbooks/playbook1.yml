@@ -1,0 +1,13 @@
+---
+- name: install git and tree on all managed nodes 
+  hosts: all
+  tasks:
+   - name: install git
+     apt:
+      name: git
+      state: present
+   - name: install tree
+     apt:
+      name: tree
+      state: present
+...

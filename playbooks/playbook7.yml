@@ -1,0 +1,15 @@
+---
+- name: create a user and create a file in the user's workspace
+  hosts: 172.31.32.5
+  tasks:
+   - name: create a user
+     user:
+      name: "{{user1}}"
+      password: "{{password1}}"
+      home: "{{workspace}}"
+      comment: "{{info}}"
+   - name: create a file in the user's workspace
+     file:
+      name: "{{filename}}"
+      state: "{{state1}}"
+...

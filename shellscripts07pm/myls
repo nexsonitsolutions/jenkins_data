@@ -1,0 +1,4 @@
+#!/bin/bash
+date | awk '{print $3,$2, $6}'
+dir
+echo "you are running this command at this location : $PWD"

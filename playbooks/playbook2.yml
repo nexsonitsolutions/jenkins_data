@@ -1,0 +1,14 @@
+---
+- name: uninstall git and tree on all managed nodes 
+  hosts: all
+  become: true
+  tasks:
+   - name: uninstall git
+     apt:
+      name: git
+      state: absent
+   - name: uninstall tree
+     apt:
+      name: tree
+      state: absent
+...

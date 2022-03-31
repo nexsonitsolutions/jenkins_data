@@ -1,0 +1,23 @@
+- name: playbook to configure apache2
+  hosts: all
+  tasks:
+   - name: installapache2
+     apt:
+      name: apache2
+      state: present
+      update_cache: yes
+     notify: checkurlresp
+   - name: changethedefaultcontent
+     copy:
+      content: "Hello there, welcome to apache2 default website"
+      dest: /var/www/html/index.html
+     notify: restartapache2
+  handlers:
+    - name: checkurlresp
+      uri:
+       url: 172.31.32.5:80
+       status_code: 200
+    - name: restartapache2
+      service:
+       name: apache2
+       state: restarted
